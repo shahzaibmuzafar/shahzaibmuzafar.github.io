@@ -1,0 +1,97 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   XplodeBits 
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(45deg, #001f3f, #000000);
+            transition: background 10s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .border-advanced {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, cyan, magenta) 1;
+        }
+        .button-advanced {
+            background: linear-gradient(45deg, cyan, magenta);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            display: inline-block;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .button-advanced:hover {
+            background: linear-gradient(45deg, magenta, cyan);
+        }
+  </style>
+ </head>
+ <body>
+  <main class="text-center px-6 relative flex-grow">
+   <h1 class="text-6xl font-bold text-white mt-12 relative">
+    Hi. I'm XplodeBits.
+    <br/>
+    A Designer.
+   </h1>
+   <p class="text-lg text-gray-400 mt-4 relative">
+    I'm from Pakistan and living in <mark style="background-color: skyblue;">USA</mark>. I'm a 16-year-old student who loves to develop Minecraft and Discord servers and all that.
+   </p>
+   <div class="mt-12 relative">
+    <a class="button-advanced mt-4" href="https://www.youtube.com/@XplodeBits">
+     YouTube
+    </a>
+    <br/>
+    <a class="button-advanced mt-4" href="https://discord.gg/KByAkKptKF">
+     Discord
+    </a>
+   </div>
+   <div class="mt-8 text-left inline-block border-advanced p-6 rounded bg-gray-700 relative">
+    <p class="text-lg text-white font-bold">
+     Discorda SMP
+    </p>
+    <p class="text-lg text-gray-300">
+     A Vanilla Survival Server <strong>Bedrock</strong>.
+    </p>
+    <p class="text-lg text-gray-300">
+     Version: <strong>1.21.30</strong>
+    </p>
+    <p class="text-lg text-gray-300">
+     IP: Discorda.aternos.me
+    </p>
+    <p class="text-lg text-gray-300">
+     Port: 17870
+    </p>
+   </div>
+  </main>
+  <footer class="bg-gray-800 py-6 text-center border-advanced relative">
+   <p class="text-gray-400">
+    © 2023 XplodeBits
+   </p>
+  </footer>
+  <script>
+    let colors = [
+        '#001f3f', '#000000', '#111111', '#222222', '#333333', '#444444', '#555555', '#666666', '#777777', '#888888'
+    ];
+    let currentIndex = 0;
+
+    function changeBackground() {
+        currentIndex = (currentIndex + 1) % colors.length;
+        document.body.style.background = `linear-gradient(45deg, ${colors[currentIndex]}, ${colors[(currentIndex + 1) % colors.length]})`;
+    }
+
+    setInterval(changeBackground, 10000);
+  </script>
+ </body>
+</html>
