@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XplodeBits Portfolio</title>
+    <title>XplodeBits</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
@@ -53,11 +53,9 @@
             position: absolute;
             top: 50px;
             right: 10px;
-            display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            animation: origami 0.5s forwards;
         }
         .menu a {
             display: flex;
@@ -68,7 +66,7 @@
             width: 60px;
             height: 60px;
             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-            background-color: #4a4a4a;
+            background-color: #ff7043;
             transition: background-color 0.3s;
         }
         .menu a:hover {
@@ -151,6 +149,10 @@
                 transform: scaleY(1);
             }
         }
+        .menu.show {
+            display: flex;
+            animation: origami 0.5s forwards;
+        }
     </style>
 </head>
 <body>
@@ -194,12 +196,8 @@
     <script>
         function toggleMenu() {
             var menu = document.getElementById('menu');
-            if (menu.style.display === 'flex') {
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'flex';
-            }
+            menu.classList.toggle('show');
         }
     </script>
 </body>
-</html>
+        </html>
