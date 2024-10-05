@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XplodeBits</title>
+    <title>XplodeBits Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
@@ -41,6 +41,42 @@
             height: 40px;
             border-radius: 5px;
         }
+        header .menu-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: origami 0.5s forwards;
+        }
+        .menu a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            width: 60px;
+            height: 60px;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background-color: #4a4a4a;
+            transition: background-color 0.3s;
+        }
+        .menu a:hover {
+            background-color: #2e7d32;
+        }
+        .menu a i {
+            font-size: 24px;
+        }
         section {
             margin: 20px 0;
         }
@@ -77,6 +113,8 @@
             text-align: center;
             transition: transform 0.3s;
             cursor: pointer;
+            text-decoration: none;
+            color: #333;
         }
         @media (min-width: 768px) {
             .project {
@@ -94,6 +132,9 @@
         .project p {
             font-size: 1em;
         }
+        .project:hover h3, .project:hover p {
+            text-decoration: underline;
+        }
         footer {
             text-align: center;
             padding: 20px 0;
@@ -101,6 +142,14 @@
             color: #fff;
             border-top-left-radius: 50% 20%;
             border-top-right-radius: 50% 20%;
+        }
+        @keyframes origami {
+            0% {
+                transform: scaleY(0);
+            }
+            100% {
+                transform: scaleY(1);
+            }
         }
     </style>
 </head>
@@ -110,6 +159,15 @@
             <img src="https://i.imgur.com/WF0MoTo.jpeg" alt="Profile Icon">
         </div>
         <h1>XplodeBits</h1>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu" id="menu">
+            <a href="https://www.youtube.com/@XplodeBits"><i class="fab fa-youtube"></i></a>
+            <a href="https://discord.gg/KByAkKptKF"><i class="fab fa-discord"></i></a>
+            <a href="https://linktr.ee/XplodeBits"><i class="fas fa-link"></i></a>
+            <a href="https://instagram.com/shahzaib_hun_yar"><i class="fab fa-instagram"></i></a>
+        </div>
     </header>
     <div class="container">
         <section>
@@ -121,10 +179,10 @@
             <div class="projects">
                 <a href="https://discord.com/oauth2/authorize?client_id=1246061620849803345&permissions=67584&scope=bot" class="project" style="background-color: #ffccbc;">
                     <h3>Araya Bot</h3>
-                    <p>Araya an AI Discord Bot, Who chats and helps you.</p>
+                    <p>AI Bot Who chats and helps you.</p>
                 </a>
-                <a href="https://discord.gg/KByAkKptKF" class="project" style="background-color: #c5e1a5;">
-                    <h3>Soon...</h3>
+                <a href="#" class="project" style="background-color: #c5e1a5;">
+                    <h3>Coming Soon...</h3>
                     <p>Coming Soon...</p>
                 </a>
             </div>
@@ -133,5 +191,15 @@
     <footer>
         <p>&copy; 2024 XplodeBits. All rights reserved.</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+    </script>
 </body>
-    </html>
+</html>
