@@ -242,6 +242,7 @@
     </footer>
     <script>
         var operatorPassword = "191321";
+        var apiUrl = "https://mockapi.io/projects/your-project-id/sponsors"; // Replace with your actual API URL
 
         document.getElementById('sponsorForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -252,17 +253,25 @@
             var submissionPassword = document.getElementById('submissionPassword').value;
 
             var sponsor = {
-                id: Date.now(),
                 name: name,
                 link: link,
                 message: message,
                 password: submissionPassword
             };
 
-            addSponsorToDOM(sponsor);
-            saveSponsorToLocalStorage(sponsor);
-
-            document.getElementById('sponsorForm').reset();
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(sponsor)
+            })
+            .then(response => response.json())
+            .then(data => {
+                addSponsorToDOM(data);
+                document.getElementById('sponsorForm').reset();
+            })
+            .catch(error => console.error('Error:', error));
         });
 
         function addSponsorToDOM(sponsor) {
@@ -275,17 +284,15 @@
             document.getElementById('submittedMessages').appendChild(sponsorContainer);
         }
 
-        function saveSponsorToLocalStorage(sponsor) {
-            var sponsors = JSON.parse(localStorage.getItem('sponsors')) || [];
-            sponsors.push(sponsor);
-            localStorage.setItem('sponsors', JSON.stringify(sponsors));
-        }
-
-        function loadSponsorsFromLocalStorage() {
-            var sponsors = JSON.parse(localStorage.getItem('sponsors')) || [];
-            sponsors.forEach(function(sponsor) {
-                addSponsorToDOM(sponsor);
-            });
+        function loadSponsorsFromAPI() {
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(sponsor => {
+                    addSponsorToDOM(sponsor);
+                });
+            })
+            .catch(error => console.error('Error:', error));
         }
 
         function deleteSponsor(button) {
@@ -294,19 +301,16 @@
             var password = prompt('Enter password to delete this submission:');
             if (password === submissionPassword || password === operatorPassword) {
                 var sponsorId = sponsorContainer.getAttribute('data-id');
-                sponsorContainer.remove();
-                removeSponsorFromLocalStorage(sponsorId);
+                fetch(`${apiUrl}/${sponsorId}`, {
+                    method: 'DELETE'
+                })
+                .then(() => {
+                    sponsorContainer.remove();
+                })
+                .catch(error => console.error('Error:', error));
             } else {
                 alert('Stop Tryna Be OP.');
             }
-        }
-
-        function removeSponsorFromLocalStorage(sponsorId) {
-            var sponsors = JSON.parse(localStorage.getItem('sponsors')) || [];
-            sponsors = sponsors.filter(function(sponsor) {
-                return sponsor.id != sponsorId;
-            });
-            localStorage.setItem('sponsors', JSON.stringify(sponsors));
         }
 
         function toggleMenu() {
@@ -314,8 +318,8 @@
             menu.classList.toggle('show');
         }
 
-        // Load sponsors from local storage on page load
-        window.onload = loadSponsorsFromLocalStorage;
+        // Load sponsors from API on page load
+        window.onload = loadSponsorsFromAPI;
     </script>
 </body>
-</html>
+                                                                                            </html>
