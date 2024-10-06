@@ -204,11 +204,10 @@
             <i class="fas fa-bars"></i>
         </div>
         <div class="menu" id="menu">
-            <a href="https://www.youtube.com/@XplodeBits"><i class="fab fa-youtube"></i></a>
-            <a href="https://discord.gg/KByAkKptKF"><i class="fab fa-discord"></i></a>
-            <a href="https://linktr.ee/shahzaib_hun_yar"><i class="fas fa-link"></i></a>
-            <a href="https://instagram.com/shahzaib_hun_yar"><i class="fab fa-instagram"></i></a>
-            <a href="https://xplodebits.github.io"><i class="fas fa-link"></i></a>
+            <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+            <a href="https://discord.com"><i class="fab fa-discord"></i></a>
+            <a href="https://linktr.ee"><i class="fas fa-link"></i></a>
+            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
         </div>
     </header>
     <div class="container">
@@ -225,7 +224,7 @@
                     <input type="text" id="name" placeholder="Your Name" required>
                     <input type="url" id="link" placeholder="Your Link" required>
                     <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
-                    <input type="password" id="submissionPassword" placeholder="Password for Deletion (Dont Forget)" required>
+                    <input type="password" id="submissionPassword" placeholder="Set a Password for Deletion" required>
                     <button type="submit">Submit</button>
                 </form>
             </div>
@@ -238,7 +237,7 @@
         </section>
     </div>
     <footer>
-        <p>&copy; 2024 XplodeBits. All rights reserved.</p>
+        <p>&copy; 2023 XplodeBits. All rights reserved.</p>
     </footer>
     <script>
         var operatorPassword = "191321";
@@ -251,31 +250,71 @@
             var message = document.getElementById('message').value;
             var submissionPassword = document.getElementById('submissionPassword').value;
 
-            var sponsorContainer = document.createElement('div');
-            sponsorContainer.classList.add('sponsor');
-            sponsorContainer.setAttribute('data-password', submissionPassword);
-            sponsorContainer.innerHTML = '<h3>' + name + '</h3><p>' + message + '</p><a href="' + link + '" target="_blank">Visit</a><button class="delete-btn" onclick="deleteSponsor(this)">Delete</button>';
+            var sponsor = {
+                id: Date.now(),
+                name: name,
+                link: link,
+                message: message,
+                password: submissionPassword
+            };
 
-            document.getElementById('submittedMessages').appendChild(sponsorContainer);
+            addSponsorToDOM(sponsor);
+            saveSponsorToLocalStorage(sponsor);
 
             document.getElementById('sponsorForm').reset();
         });
+
+        function addSponsorToDOM(sponsor) {
+            var sponsorContainer = document.createElement('div');
+            sponsorContainer.classList.add('sponsor');
+            sponsorContainer.setAttribute('data-id', sponsor.id);
+            sponsorContainer.setAttribute('data-password', sponsor.password);
+            sponsorContainer.innerHTML = '<h3>' + sponsor.name + '</h3><p>' + sponsor.message + '</p><a href="' + sponsor.link + '" target="_blank">Visit</a><button class="delete-btn" onclick="deleteSponsor(this)">Delete</button>';
+
+            document.getElementById('submittedMessages').appendChild(sponsorContainer);
+        }
+
+        function saveSponsorToLocalStorage(sponsor) {
+            var sponsors = JSON.parse(localStorage.getItem('sponsors')) || [];
+            sponsors.push(sponsor);
+            localStorage.setItem('sponsors', JSON.stringify(sponsors));
+        }
+
+        function loadSponsorsFromLocalStorage() {
+            var sponsors = JSON.parse(localStorage.getItem('sponsors')) || [];
+            sponsors.forEach(function(sponsor) {
+                addSponsorToDOM(sponsor);
+            });
+        }
 
         function deleteSponsor(button) {
             var sponsorContainer = button.parentElement;
             var submissionPassword = sponsorContainer.getAttribute('data-password');
             var password = prompt('Enter password to delete this submission:');
             if (password === submissionPassword || password === operatorPassword) {
+                var sponsorId = sponsorContainer.getAttribute('data-id');
                 sponsorContainer.remove();
+                removeSponsorFromLocalStorage(sponsorId);
             } else {
                 alert('Stop Tryna Be OP.');
             }
+        }
+
+        function removeSponsorFromLocalStorage(sponsorId) {
+            var sponsors = JSON.parse(localStorage.getItem('sponsors')) || [];
+            sponsors = sponsors.filter(function(sponsor) {
+                return sponsor.id != sponsorId;
+            });
+            localStorage.setItem('sponsors', JSON.stringify(sponsors));
         }
 
         function toggleMenu() {
             var menu = document.getElementById('menu');
             menu.classList.toggle('show');
         }
+
+        // Load sponsors from local storage on page load
+        window.onload = loadSponsorsFromLocalStorage;
     </script>
 </body>
-    </html>
+</html>
