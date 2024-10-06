@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XplodeBits Sponsers</title>
+    <title>XplodeBits Sponsors</title>
     <link rel="icon" href="https://i.imgur.com/WF0MoTo.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -172,29 +172,6 @@
         .form-container button:hover {
             background-color: #357ab7;
         }
-        .login-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .login-container button {
-            padding: 10px 20px;
-            background-color: #db4437;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .login-container button:hover {
-            background-color: #c33d2e;
-        }
-        .login-container button i {
-            margin-right: 10px;
-        }
         footer {
             text-align: center;
             padding: 20px 0;
@@ -216,8 +193,6 @@
             animation: origami 0.5s forwards;
         }
     </style>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
     <header>
@@ -231,7 +206,7 @@
         <div class="menu" id="menu">
             <a href="https://www.youtube.com/@XplodeBits"><i class="fab fa-youtube"></i></a>
             <a href="https://discord.gg/KByAkKptKF"><i class="fab fa-discord"></i></a>
-            <a href="https://linktr.ee/XplodeBits"><i class="fas fa-link"></i></a>
+            <a href="https://linktr.ee/shahzaib_hun_yar"><i class="fas fa-link"></i></a>
             <a href="https://instagram.com/shahzaib_hun_yar"><i class="fab fa-instagram"></i></a>
         </div>
     </header>
@@ -249,6 +224,7 @@
                     <input type="text" id="name" placeholder="Your Name" required>
                     <input type="url" id="link" placeholder="Your Link" required>
                     <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                    <input type="password" id="submissionPassword" placeholder="Password for Deletion (Dont Forget)" required>
                     <button type="submit">Submit</button>
                 </form>
             </div>
@@ -259,61 +235,24 @@
                 <!-- Submitted messages will be dynamically added here -->
             </div>
         </section>
-        <section class="login-container">
-            <h2>Login with Google</h2>
-            <button onclick="signInWithGoogle()">
-                <i class="fab fa-google"></i> Login with Google
-            </button>
-        </section>
     </div>
     <footer>
-        <p>&copy; 2023 XplodeBits. All rights reserved.</p>
+        <p>&copy; 2024 XplodeBits. All rights reserved.</p>
     </footer>
     <script>
-        function toggleMenu() {
-            var menu = document.getElementById('menu');
-            menu.classList.toggle('show');
-        }
-
-        var currentUser = null;
-        var operatorEmail = "uroura2233@gmail.com";
-
-        function signInWithGoogle() {
-            gapi.auth2.getAuthInstance().signIn().then(function(googleUser) {
-                var profile = googleUser.getBasicProfile();
-                currentUser = {
-                    id: profile.getId(),
-                    name: profile.getName(),
-                    email: profile.getEmail()
-                };
-                document.getElementById('sponsorForm').style.display = 'block';
-            });
-        }
-
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            currentUser = {
-                id: profile.getId(),
-                name: profile.getName(),
-                email: profile.getEmail()
-            };
-            document.getElementById('sponsorForm').style.display = 'block';
-        }
+        var operatorPassword = "191321";
 
         document.getElementById('sponsorForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            if (!currentUser) {
-                alert('Please log in with Google to submit a message.');
-                return;
-            }
 
             var name = document.getElementById('name').value;
             var link = document.getElementById('link').value;
             var message = document.getElementById('message').value;
+            var submissionPassword = document.getElementById('submissionPassword').value;
 
             var sponsorContainer = document.createElement('div');
             sponsorContainer.classList.add('sponsor');
-            sponsorContainer.setAttribute('data-user-id', currentUser.id);
+            sponsorContainer.setAttribute('data-password', submissionPassword);
             sponsorContainer.innerHTML = '<h3>' + name + '</h3><p>' + message + '</p><a href="' + link + '" target="_blank">Visit</a><button class="delete-btn" onclick="deleteSponsor(this)">Delete</button>';
 
             document.getElementById('submittedMessages').appendChild(sponsorContainer);
@@ -323,13 +262,19 @@
 
         function deleteSponsor(button) {
             var sponsorContainer = button.parentElement;
-            var userId = sponsorContainer.getAttribute('data-user-id');
-            if (currentUser && (currentUser.id === userId || currentUser.email === operatorEmail)) {
+            var submissionPassword = sponsorContainer.getAttribute('data-password');
+            var password = prompt('Enter password to delete this submission:');
+            if (password === submissionPassword || password === operatorPassword) {
                 sponsorContainer.remove();
             } else {
-                alert('You can only delete your own submissions.');
+                alert('Stop Tryna Be OP.');
             }
+        }
+
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
         }
     </script>
 </body>
-      </html>
+    </html>
