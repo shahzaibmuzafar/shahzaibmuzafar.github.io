@@ -1,0 +1,335 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XplodeBits Sponsers</title>
+    <link rel="icon" href="https://i.imgur.com/WF0MoTo.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #4a90e2;
+            color: #fff;
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            position: relative;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        header .icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        header .icon img {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+        }
+        header .menu-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .menu a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            width: 60px;
+            height: 60px;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background-color: #ff7043;
+            transition: background-color 0.3s;
+        }
+        .menu a:hover {
+            background-color: #2e7d32;
+        }
+        .menu a i {
+            font-size: 24px;
+        }
+        section {
+            margin: 20px 0;
+        }
+        h2 {
+            font-size: 2em;
+            color: #4a90e2;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .sponsors {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .sponsor {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            position: relative;
+        }
+        .sponsor:hover {
+            transform: translateY(-10px);
+        }
+        .sponsor h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            color: #4a90e2;
+        }
+        .sponsor p {
+            font-size: 1em;
+        }
+        .sponsor:hover h3, .sponsor:hover p {
+            text-decoration: underline;
+        }
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff7043;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            display: none;
+        }
+        .sponsor:hover .delete-btn {
+            display: block;
+        }
+        .form-container {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .form-container h2 {
+            margin-top: 0;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .form-container input, .form-container textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .form-container button {
+            padding: 10px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-container button:hover {
+            background-color: #357ab7;
+        }
+        .login-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .login-container button {
+            padding: 10px 20px;
+            background-color: #db4437;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container button:hover {
+            background-color: #c33d2e;
+        }
+        .login-container button i {
+            margin-right: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4a90e2;
+            color: #fff;
+            border-top-left-radius: 50% 20%;
+            border-top-right-radius: 50% 20%;
+        }
+        @keyframes origami {
+            0% {
+                transform: scaleY(0);
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+        .menu.show {
+            display: flex;
+            animation: origami 0.5s forwards;
+        }
+    </style>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
+</head>
+<body>
+    <header>
+        <div class="icon">
+            <img src="https://i.imgur.com/WF0MoTo.jpeg" alt="Profile Icon">
+        </div>
+        <h1>XplodeBits</h1>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu" id="menu">
+            <a href="https://www.youtube.com/@XplodeBits"><i class="fab fa-youtube"></i></a>
+            <a href="https://discord.gg/KByAkKptKF"><i class="fab fa-discord"></i></a>
+            <a href="https://linktr.ee/XplodeBits"><i class="fas fa-link"></i></a>
+            <a href="https://instagram.com/shahzaib_hun_yar"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <section>
+            <h2>Sponsors</h2>
+            <div class="sponsors" id="sponsors">
+                <!-- Sponsor messages will be dynamically added here -->
+            </div>
+        </section>
+        <section>
+            <div class="form-container">
+                <h2>Submit Your Message</h2>
+                <form id="sponsorForm">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="url" id="link" placeholder="Your Link" required>
+                    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+        <section>
+            <h2>Submitted Messages</h2>
+            <div class="sponsors" id="submittedMessages">
+                <!-- Submitted messages will be dynamically added here -->
+            </div>
+        </section>
+        <section class="login-container">
+            <h2>Login with Google</h2>
+            <button onclick="signInWithGoogle()">
+                <i class="fab fa-google"></i> Login with Google
+            </button>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2023 XplodeBits. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        var currentUser = null;
+        var operatorEmail = "uroura2233@gmail.com";
+
+        function signInWithGoogle() {
+            gapi.auth2.getAuthInstance().signIn().then(function(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                currentUser = {
+                    id: profile.getId(),
+                    name: profile.getName(),
+                    email: profile.getEmail()
+                };
+                document.getElementById('sponsorForm').style.display = 'block';
+            });
+        }
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            currentUser = {
+                id: profile.getId(),
+                name: profile.getName(),
+                email: profile.getEmail()
+            };
+            document.getElementById('sponsorForm').style.display = 'block';
+        }
+
+        document.getElementById('sponsorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (!currentUser) {
+                alert('Please log in with Google to submit a message.');
+                return;
+            }
+
+            var name = document.getElementById('name').value;
+            var link = document.getElementById('link').value;
+            var message = document.getElementById('message').value;
+
+            var sponsorContainer = document.createElement('div');
+            sponsorContainer.classList.add('sponsor');
+            sponsorContainer.setAttribute('data-user-id', currentUser.id);
+            sponsorContainer.innerHTML = '<h3>' + name + '</h3><p>' + message + '</p><a href="' + link + '" target="_blank">Visit</a><button class="delete-btn" onclick="deleteSponsor(this)">Delete</button>';
+
+            document.getElementById('submittedMessages').appendChild(sponsorContainer);
+
+            document.getElementById('sponsorForm').reset();
+        });
+
+        function deleteSponsor(button) {
+            var sponsorContainer = button.parentElement;
+            var userId = sponsorContainer.getAttribute('data-user-id');
+            if (currentUser && (currentUser.id === userId || currentUser.email === operatorEmail)) {
+                sponsorContainer.remove();
+            } else {
+                alert('You can only delete your own submissions.');
+            }
+        }
+    </script>
+</body>
+      </html>
