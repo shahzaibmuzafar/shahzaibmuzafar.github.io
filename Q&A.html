@@ -250,7 +250,7 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ answer: answer })
+                body: JSON.stringify({ answers: [answer] })
             })
             .then(response => response.json())
             .then(data => {
@@ -285,7 +285,7 @@
                 })
                 .catch(error => console.error('Error:', error));
             } else {
-                alert('Stop Tryna Be Nerd.');
+                alert('Stop Tryna Be OP.');
             }
         }
 
@@ -293,4 +293,4 @@
         window.onload = loadQAFromAPI;
     </script>
 </body>
-  </html>
+    </html>
