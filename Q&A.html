@@ -1,0 +1,296 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Q&A</title>
+    <link rel="icon" href="https://i.imgur.com/WF0MoTo.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #3c3c3c;
+            color: #fff;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #4a90e2;
+            color: #fff;
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+        header .home-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+        section {
+            margin: 20px 0;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #4a90e2;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .qa-container {
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .qa-container h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            color: #4a90e2;
+        }
+        .qa-container p {
+            font-size: 1em;
+        }
+        .qa-container .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff7043;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            display: none;
+        }
+        .qa-container:hover .delete-btn {
+            display: block;
+        }
+        .form-container {
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .form-container h2 {
+            margin-top: 0;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .form-container input, .form-container textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .form-container button {
+            padding: 10px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-container button:hover {
+            background-color: #357ab7;
+        }
+        .reply-container {
+            margin-top: 20px;
+        }
+        .reply-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .reply-container input, .reply-container textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .reply-container button {
+            padding: 10px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .reply-container button:hover {
+            background-color: #357ab7;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4a90e2;
+            color: #fff;
+            border-top-left-radius: 50% 20%;
+            border-top-right-radius: 50% 20%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Minecraft Q&A</h1>
+        <a href="https://xplodebits.github.io" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+    </header>
+    <div class="container">
+        <section>
+            <div class="form-container">
+                <h2>Submit Your Question</h2>
+                <form id="qaForm">
+                    <input type="text" id="question" placeholder="Your Question" required>
+                    <input type="password" id="submissionPassword" placeholder="Set a Password for Deletion" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+        <section>
+            <h2>Questions and Answers</h2>
+            <div class="qa-container" id="qaContainer">
+                <!-- Q&A items will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 XplodeBits. All rights reserved.</p>
+    </footer>
+    <script>
+        var operatorPassword = "191321";
+        var apiUrl = "https://mockapi.io/projects/67029cc0bd7c8c1ccd3f5a4d"; // Replace with your actual API URL
+
+        document.getElementById('qaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var question = document.getElementById('question').value;
+            var submissionPassword = document.getElementById('submissionPassword').value;
+
+            var qaItem = {
+                question: question,
+                answers: [],
+                password: submissionPassword
+            };
+
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(qaItem)
+            })
+            .then(response => response.json())
+            .then(data => {
+                addQAToDOM(data);
+                document.getElementById('qaForm').reset();
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function addQAToDOM(qaItem) {
+            var qaContainer = document.createElement('div');
+            qaContainer.classList.add('qa-container');
+            qaContainer.setAttribute('data-id', qaItem.id);
+            qaContainer.setAttribute('data-password', qaItem.password);
+            qaContainer.innerHTML = '<h3>Q: ' + qaItem.question + '</h3><div class="answers"></div><div class="reply-container"><form onsubmit="submitAnswer(event, ' + qaItem.id + ')"><textarea placeholder="Your Answer" required></textarea><button type="submit">Reply</button></form></div><button class="delete-btn" onclick="deleteQA(this)">Delete</button>';
+
+            document.getElementById('qaContainer').appendChild(qaContainer);
+
+            qaItem.answers.forEach(answer => {
+                addAnswerToDOM(qaContainer, answer);
+            });
+        }
+
+        function addAnswerToDOM(qaContainer, answer) {
+            var answersDiv = qaContainer.querySelector('.answers');
+            var answerP = document.createElement('p');
+            answerP.textContent = 'A: ' + answer;
+            answersDiv.appendChild(answerP);
+        }
+
+        function submitAnswer(event, qaId) {
+            event.preventDefault();
+
+            var qaContainer = document.querySelector('.qa-container[data-id="' + qaId + '"]');
+            var answerTextarea = qaContainer.querySelector('.reply-container textarea');
+            var answer = answerTextarea.value;
+
+            fetch(apiUrl + '/' + qaId, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ answer: answer })
+            })
+            .then(response => response.json())
+            .then(data => {
+                addAnswerToDOM(qaContainer, answer);
+                answerTextarea.value = '';
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function loadQAFromAPI() {
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(qaItem => {
+                    addQAToDOM(qaItem);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function deleteQA(button) {
+            var qaContainer = button.parentElement;
+            var submissionPassword = qaContainer.getAttribute('data-password');
+            var password = prompt('Enter password to delete this post:');
+            if (password === submissionPassword || password === operatorPassword) {
+                var qaId = qaContainer.getAttribute('data-id');
+                fetch(`${apiUrl}/${qaId}`, {
+                    method: 'DELETE'
+                })
+                .then(() => {
+                    qaContainer.remove();
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                alert('Stop Tryna Be Nerd.');
+            }
+        }
+
+        // Load Q&A items from API on page load
+        window.onload = loadQAFromAPI;
+    </script>
+</body>
+  </html>
