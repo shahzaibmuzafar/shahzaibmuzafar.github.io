@@ -1,0 +1,866 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>LavaCod Music</title>
+  <meta name="description" content="Discover LavaCod, a powerful music bot supporting Spotify, YouTube, Deezer, and SoundCloud. Enjoy uninterrupted music streaming with our 24/7 feature and advanced music controller for high-quality audio.">
+  <meta name="keywords" content="LavaCod, music bot, Spotify, YouTube, Deezer, SoundCloud, 24/7 music, advanced music controller, music streaming">
+  <meta name="author" content="Karta Dharta">
+
+  <!-- Favicons -->
+  <link href="images/logo.png" rel="icon" type="image/gif">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <!-- Vendor CSS Files -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/icofont.min.css" rel="stylesheet">
+  <link href="css/boxicons.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+  <link href="css/remixicon.css" rel="stylesheet">
+  <link href="css/line-awesome.min.css" rel="stylesheet">
+  <link href="css/venobox.css" rel="stylesheet">
+  <link href="css/owl.carousel.min.css" rel="stylesheet">
+  <link href="css/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<style>
+  .bot-data {
+    text-align: center;
+    font-weight: 900;
+  }
+
+  .variable {
+    font-size: 30px;
+    margin-bottom: 0px;
+  }
+
+  .server-image{
+    width: 70px;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .voice-channel{
+    border: 5px solid #358714;
+  }
+</style></head>
+
+
+
+<body>
+
+  <div id="app-index">
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+      <div class="container d-flex align-items-center">
+
+        <div class="logo mr-auto">
+          <h1 class="text-light"><a href="/">LavaCod</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#command">Command</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/login">Login</a></li>
+
+          </ul>
+        </nav><!-- .nav-menu -->
+
+      </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+       <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="carousel-container">
+            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Karta Dharta</span></h2>
+            <p class="animate__animated fanimate__adeInUp">An advanced discord music bot, supports Spotify, Soundcloud, YouTube with Shuffling, Volume Control and Web Dashboard!</p>
+            <a href="#data" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            <a href="/controller" class="btn-get-started animate__animated animate__fadeInUp scrollto">Music Controller</a>
+          </div>
+        </div>
+
+      </div>
+
+      <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+        <defs>
+          <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+        </path></defs>
+        <g class="wave1">
+          <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+        </use></g>
+        <g class="wave2">
+          <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+        </use></g>
+        <g class="wave3">
+          <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+        </use></g>
+      </svg>
+
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+      <section id="data" class="services">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>collection</h2>
+            <p>BOT DATA</p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="icon-box" data-aos="zoom-in-left">
+                <div class="icon"><i class="la la-digital-tachograph" style="color: #15ac1d;"></i></div>
+                <h4 class="title" id="commands">0</h4>
+                <p class="description">Commands Run</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+              <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+                <div class="icon"><i class="la la-music" style="color: #15ac1d;"></i></div>
+                <h4 class="title" id="music">0</h4>
+                <p class="description">Music Played</p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 ">
+              <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+                <div class="icon"><i class="la la-layer-group" style="color: #15ac1d;"></i></div>
+                <h4 class="title" id="servers">0</h4>
+                <p class="description">Total Server</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="300">
+                <div class="icon"><i class="las la-wifi" style="color:#15ac1d;"></i></div>
+                <h4 class="title" id="ping">0</h4>
+                <p class="description">Ping ms</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about" style="padding-bottom: 0;">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>About</h2>
+            <p>Who We Are</p>
+          </div>
+
+          <div class="row content" data-aos="fade-up">
+            <div class="col-lg-6">
+              <p>
+                LavaCod is a powerful music bot that supports Spotify, YouTube, Deezer, and SoundCloud. It offers a 24/7 feature and boasts a robust music controller with crystal-clear audio.
+              </p>
+              <ul>
+                <li><i class="ri-check-double-line"></i> Supports Spotify, YouTube, Deezer, and SoundCloud</li>
+                <li><i class="ri-check-double-line"></i> 24/7 music feature</li>
+                <li><i class="ri-check-double-line"></i> Advanced music controller with high-quality audio</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+              <p>
+                LavaCod provides seamless integration with popular music platforms and ensures an exceptional listening experience. Enjoy uninterrupted music streaming with our reliable 24/7 feature and take control with our intuitive music controller.
+              </p>
+              <a href="#command" class="btn-learn-more scrollto">Learn More</a>
+            </div>
+          </div>
+
+      </div></section><!-- End About Section -->
+
+      <!-- ======= Features Section ======= -->
+      <section id="features" class="features">
+        <div class="container">
+
+          <ul class="nav nav-tabs row d-flex">
+            <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="100">
+              <a class="nav-link active show" data-toggle="tab" href="#tab-1">
+                <i class="ri-gps-line"></i>
+                <h4 class="d-none d-lg-block">Music System</h4>
+              </a>
+            </li>
+            <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="100">
+              <a class="nav-link" data-toggle="tab" href="#tab-2">
+                <i class="ri-body-scan-line"></i>
+                <h4 class="d-none d-lg-block">Lag Free Music</h4>
+              </a>
+            </li>
+            <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="200">
+              <a class="nav-link" data-toggle="tab" href="#tab-3">
+                <i class="ri-sun-line"></i>
+                <h4 class="d-none d-lg-block">How to Setup</h4>
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content" data-aos="fade-up">
+            <div class="tab-pane active show" id="tab-1">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                    <h3>Advanced Music Bot with Multi-Platform Support</h3>
+                    <p class="fst-italic">
+                        Experience seamless music streaming from Spotify, SoundCloud, and YouTube with our versatile Discord bot.
+                    </p>
+                    <ul>
+                        <li><i class="ri-check-double-line"></i> Shuffle songs for a dynamic playlist experience.</li>
+                        <li><i class="ri-check-double-line"></i> Control volume levels to suit your listening environment.</li>
+                        <li><i class="ri-check-double-line"></i> Web dashboard for easy configuration and management.</li>
+                    </ul>
+                    <p>
+                        Enjoy unparalleled audio quality and user-friendly controls. Our bot ensures you can create the perfect atmosphere for any occasion.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="images/features-1.png" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-2">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                    <h3>Lag-Free Music Playback</h3>
+                    <p>
+                        Dive into a seamless music experience with our Discord bot. Say goodbye to interruptions and enjoy your favorite tracks with crystal-clear audio quality.
+                    </p>
+                    <p class="fst-italic">
+                        Whether you're hosting a party or unwinding after a long day, our bot ensures smooth playback without any lag, providing the perfect soundtrack to your moments.
+                    </p>
+                    <ul>
+                        <li><i class="ri-check-double-line"></i> Experience uninterrupted music streaming.</li>
+                        <li><i class="ri-check-double-line"></i> Crystal-clear audio quality for immersive listening.</li>
+                        <li><i class="ri-check-double-line"></i> Perfect for parties, gaming sessions, and relaxation.</li>
+                        <li><i class="ri-check-double-line"></i> Seamless integration with Discord voice channels.</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="images/features-2.png" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-3">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                    <h3>Setup Instructions</h3>
+                    <p>
+                        To set up our versatile Discord music bot, use the command <code>/setup [channel_name]</code> in any voice or text channel. This command creates a controller for seamless management.
+                    </p>
+                    <ul>
+                        <li><i class="ri-check-double-line"></i> Easily configure the bot with a simple setup command.</li>
+                        <li><i class="ri-check-double-line"></i> Manage settings in any Discord channel.</li>
+                        <li><i class="ri-check-double-line"></i> Keep your controller channel organized and clutter-free.</li>
+                    </ul>
+                    <p class="fst-italic">
+                        Enjoy the simplicity and efficiency of our setup process. It's designed to enhance your Discord experience effortlessly.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="images/features-3.png" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End Features Section -->
+
+      <!-- ======= Cta Section ======= -->
+      <section id="cta" class="cta">
+        <div class="container" id="top-server">
+
+          <div class="row" data-aos="zoom-out">
+            <div class="col-lg-9 text-center text-lg-left">
+              <h3>Top Servers Using LavaCod</h3>
+              <span v-for="guild in guilds">
+                <img :src="guild.iconUrl ? guild.iconUrl : 'https://cdn.logojoy.com/wp-content/uploads/20210422095037/discord-mascot.png'" :class="guild.inVoice ? 'server-image voice-channel' : 'server-image'" :alt="guild.name">
+              </span>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="https://discord.com/oauth2/authorize?client_id=946749028312416327&amp;permissions=277083450689&amp;scope=bot%20applications.commands">Add to Server</a>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End Cta Section -->
+
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Services</h2>
+            <p>What we do offer</p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div class="icon-box" data-aos="zoom-in-left">
+                <div class="icon"><i class="la la-spotify" style="color: #1DB954;"></i></div>
+                <h4 class="title"><a href="">Spotify</a></h4>
+                <p class="description">Works on Spotify</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+              <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+                <div class="icon"><i class="la la-youtube" style="color: #FF0000;"></i></div>
+                <h4 class="title"><a href="">Youtube</a></h4>
+                <p class="description">Works on Youtube</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
+              <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+                <div class="icon"><i class="la la-soundcloud" style="color: #ff8800;"></i></div>
+                <h4 class="title"><a href="">Sound Cloud</a></h4>
+                <p class="description">Works on Sound Cloud</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+              <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="300">
+                <div class="icon"><i class="las la-server" style="color:#41cf2e;"></i></div>
+                <h4 class="title"><a href="">Server Premium</a></h4>
+                <p class="description">Can use premium in servers</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mt-5">
+              <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
+                <div class="icon"><i class="las la-universal-access" style="color: #2bafaf;"></i></div>
+                <h4 class="title"><a href="">Universal Access</a></h4>
+                <p class="description">Can use universal Commands</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+              <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="500">
+                <div class="icon"><i class="las la-clock" style="color: #4680ff;"></i></div>
+                <h4 class="title"><a href="">Comming Soon</a></h4>
+                <p class="description">more features comming soon</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End Services Section -->
+
+      <!-- ======= Pricing Section ======= -->
+      <!-- <section id="pricing" class="pricing">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Pricing</h2>
+            <p>Our Competing Prices</p>
+          </div>
+
+          <div class="row">
+
+            <div class="col-lg-3 col-md-6">
+              <div class="box" data-aos="zoom-in">
+                <h3>Free</h3>
+                <h4><sup>₹</sup>0<span> / month</span></h4>
+                <ul>
+                  <li>Free Music</li>
+                  <li>Utilities Commands</li>
+                  <li class="na">Premium Commands</li>
+                  <li class="na">VIP Role in Support Server</li>
+                  <li class="na">Custom Language in Response</li>
+                </ul>
+                <div class="btn-wrap">
+                  <span href="" class="btn-buy">Owned</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+              <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                <h3>Sasta Nasha</h3>
+                <h4><sup>Token</sup></h4>
+                <ul>
+                  <li>Free Music</li>
+                  <li>Utilities Commands</li>
+                  <li>Premium Commands</li>
+                  <li class="na">VIP Role in Support Server</li>
+                  <li class="na">Custom Language in Response</li>
+                </ul>
+                <div class="btn-wrap">
+                  <button class="btn-buy">Ask Admin</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+              <div class="box  featured" data-aos="zoom-in" data-aos-delay="200">
+                <h3>Mehenge Nashe</h3>
+                <h4><sup>₹</sup>49<span> / month</span></h4>
+                <ul>
+                  <li>Free Music</li>
+                  <li>Utilities Commands</li>
+                  <li>Premium Commands</li>
+                  <li>VIP Role in Support Server</li>
+                  <li class="na">Custom Language in Response</li>
+                </ul>
+                <div class="btn-wrap">
+                  <button id="confirm-payment-pkg-1" class="btn-buy buy-pkg-1">Buy Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+              <div class="box" data-aos="zoom-in" data-aos-delay="300">
+                <span class="advanced">Advanced</span>
+                <h3>Bade Log</h3>
+                <h4><sup>₹</sup>69<span> / month</span></h4>
+                <ul>
+                  <li>Free Music</li>
+                  <li>Utilities Commands</li>
+                  <li>Premium Commands</li>
+                  <li>VIP Role in Support Server</li>
+                  <li>Custom Language in Response</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div id="card-element"></div>
+      </section> -->
+      <!-- End Pricing Section -->
+
+      <!-- ======= Testimonials Section ======= -->
+      <section id="testimonials" class="testimonials">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Testimonials</h2>
+            <p>What they are saying about us</p>
+          </div>
+
+          <div class="owl-carousel testimonials-carousel" data-aos="fade-up">
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Enjoy seamless, high-quality music with our user-friendly bot interface. It delivers premium sound and ensures effortless control for ultimate listening enjoyment.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/5b383da80df37e2047a06319b98c8a03.webp" class="testimonial-img" alt="">
+              <h3>Harshit</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Experience seamless, high-quality music with our user-friendly bot. Enjoy premium sound and effortless control, ensuring the ultimate listening pleasure with every interaction.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/bb57773d75e79e62efa65fb433368177.webp" class="testimonial-img" alt="">
+              <h3>KSA</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                This music bot excels with top-tier audio, a user-friendly interface, and seamless Discord integration. I highly recommend it for any server seeking an outstanding musical experience.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/e17be910df93a5bd4f740afcb9f4b0bf.webp" class="testimonial-img" alt="">
+              <h3>Suchika</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Lava Cod's updates boost user-friendly with a persise controller, quick setup, and 24/7 mode. Enhanced buttons elevate the experience, marking an excellent bot.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/a1d5410d697a01c8f70662cf2713f52c.webp" class="testimonial-img" alt="">
+              <h3>PhantomX</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                A stable bot better than Rhythm, without monetary concerns, offering excellent bitrate and amazing bass, surpassing others in quality and performance.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/3aacca62a8ba00cac42c49fb10e5869c.gif" class="testimonial-img" alt="">
+              <h3>HDKishan</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                LavaCod music bot offers high-quality audio, user-friendly interface, reliable performance, and enhances server entertainment with ease of use and dependable music playback.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/b7b06b01e1ba72aefff4130f1d5b829c.png" class="testimonial-img" alt="">
+              <h3>Flo</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                LavaCod is flawless, with its controller enhancing user experience—no need to spam commands for seamless operation and enjoyment of its features.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/862f3ec05a94a85a90ef5c52f7763a83.png" class="testimonial-img" alt="">
+              <h3>DoSomething</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                I've been on Discord for 4 years and have used many music bots. I think LavaCord's sound quality is seriously good, lag-free, and feature-rich. I'd rate it 8 out of 10 
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/db359a34053c86583482208f385a87ce.webp" class="testimonial-img" alt="">
+              <h3>Mr. Engineer</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Lava Cod is a top-tier music bot with crystal-clear sound, custom filters, and easy song requests. It keeps chat clean and delivers a flawless experience. You'll love it!
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/8ca425ce21d3a3725eaea2ef126d3a14.webp" class="testimonial-img" alt="">
+              <h3>NotShadowOG</h3>
+            </div>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                I, along with many colleagues, tested LavaCod and loved the quality provided by the bot. It rarely creates noise and offers all services very professionally and accurately.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="images/e164442dabd5163a4b404632273c4958.webp" class="testimonial-img" alt="">
+              <h3>Satoshi</h3>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- End Testimonials Section -->
+
+      <!-- ======= F.A.Q Section ======= -->
+      <section id="command" class="services">
+        <div class="container" id="commands-divs">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>COMMANDS</h2>
+            <p>Commands can run on Server</p>
+          </div>
+
+          <h4 data-aos="zoom-out">Normal Commands</h4>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mt-5" v-for="cmd in commands" v-if="!cmd.premium">
+              <div class="icon-box" data-aos="zoom-in-left">
+                <div class="icon"><i class="las la-robot" style="color: #4747A1;"></i></div>
+                <h4 class="title">{{ cmd.name }}</h4>
+                <h6 class="description text-info">{{ cmd.usage }}</h6>
+                <p class="description">{{cmd.description ? cmd.description : "None" }}</p>
+              </div>
+            </div>
+          </div>
+
+          <h4 data-aos="zoom-out" style="margin-top: 50pt;">Premium Commands</h4>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mt-5" v-for="cmd in commands" v-if="cmd.premium">
+              <div class="icon-box" data-aos="zoom-in-left">
+                <div class="icon"><i class="las la-robot" style="color: #d66f08;"></i></div>
+                <h4 class="title">{{ cmd.name }}</h4>
+                <h6 class="description text-info">{{ cmd.usage }}</h6>
+                <p class="description">{{cmd.description ? cmd.description : "None" }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End F.A.Q Section -->
+
+      <!-- ======= Pricing Section ======= -->
+      <!-- <section id="pricing" class="pricing">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Pricing</h2>
+            <p>Our Competing Prices</p>
+          </div>
+
+          <div class="row">
+
+            <div class="col-lg-3 col-md-6">
+              <div class="box" data-aos="zoom-in">
+                <h3>Free</h3>
+                <h4><sup>$</sup>0<span> / month</span></h4>
+                <ul>
+                  <li>Aida dere</li>
+                  <li>Nec feugiat nisl</li>
+                  <li>Nulla at volutpat dola</li>
+                  <li class="na">Pharetra massa</li>
+                  <li class="na">Massa ultricies mi</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+              <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
+                <h3>Business</h3>
+                <h4><sup>$</sup>19<span> / month</span></h4>
+                <ul>
+                  <li>Aida dere</li>
+                  <li>Nec feugiat nisl</li>
+                  <li>Nulla at volutpat dola</li>
+                  <li>Pharetra massa</li>
+                  <li class="na">Massa ultricies mi</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+              <div class="box" data-aos="zoom-in" data-aos-delay="200">
+                <h3>Developer</h3>
+                <h4><sup>$</sup>29<span> / month</span></h4>
+                <ul>
+                  <li>Aida dere</li>
+                  <li>Nec feugiat nisl</li>
+                  <li>Nulla at volutpat dola</li>
+                  <li>Pharetra massa</li>
+                  <li>Massa ultricies mi</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+              <div class="box" data-aos="zoom-in" data-aos-delay="300">
+                <span class="advanced">Advanced</span>
+                <h3>Ultimate</h3>
+                <h4><sup>$</sup>49<span> / month</span></h4>
+                <ul>
+                  <li>Aida dere</li>
+                  <li>Nec feugiat nisl</li>
+                  <li>Nulla at volutpat dola</li>
+                  <li>Pharetra massa</li>
+                  <li>Massa ultricies mi</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section> -->
+      <!-- End Pricing Section -->
+
+      <!-- ======= Team Section ======= -->
+      <!-- <section id="team" class="team">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Team</h2>
+            <p>Our Hardworking Team</p>
+          </div>
+
+          <div class="row center">
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up">
+                <div class="member-img">
+                  <img src="img/team/team-1.webp" class="img-fluid" alt="">
+                </div>
+                <div class="member-info">
+                  <h4>ErrorDoc404#9563</h4>
+                  <span>Chief Executive Officer</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="img/team/team-2.webp" class="img-fluid" alt="">
+                </div>
+                <div class="member-info">
+                  <h4>Ry#6106</h4>
+                  <span>Product Manager</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section> -->
+      <!-- End Team Section -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Contact</h2>
+            <p>Contact Us</p>
+          </div>
+
+          <div class="row mt-5">
+
+            <div class="col-lg-4" data-aos="fade-right">
+              <div class="info">
+                <div class="address">
+                  <i class="icofont-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>admin@kartadharta.xyz</p>
+                </div>
+
+                <div class="email">
+                  <i class="icofont-twitter"></i>
+                  <h4>Twitter:</h4>
+                  <p>@errordoc404</p>
+                </div>
+
+                <div class="phone">
+                  <i class="icofont-instagram"></i>
+                  <h4>Instagram:</h4>
+                  <p>@error_doc_404</p>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+
+              <form action="/api/mail/contact-us" method="post" role="form" class="php-email-form">
+                <div class="form-row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    <div class="validate"></div>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                    <div class="validate"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validate"></div>
+                </div>
+                <div class="mb-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+        <h3>Karta Dharta</h3>
+        <p><a href="./terms-of-service">[TOS]</a><a></a>
+        <a href="./privacy-policy">[Privacy Policy]</a></p>
+      </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/validate.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/venobox.min.js"></script>
+    <script src="js/socket.io.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="js/main.js"></script>
+    <script async="" src="js/pricing-table.js"></script>
+
+  </div>
+
+
+  <!-- <script src="vue/index.js"></script> -->
+  <script src="js/command.js"></script>
+  <script src="js/topServer.js"></script>
+
+  <script>
+    $(document).ready(() => {
+      var socket = io();
+      socket.emit("index");
+      socket.on("index", (data) => {
+        $("#commands").text(data.commands);
+        $("#music").text(data.playMusic);
+        $("#queue").text(data.inQueue);
+        $("#ping").text(data.ping);
+        $("#servers").text(data.guilds);
+      });
+
+
+    });
+  </script>
+
+
+
+</body></html>
