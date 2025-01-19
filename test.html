@@ -1,85 +1,51 @@
 <html>
 <head>
-    <title>Link Scanner and URL Redirector</title>
+    <title>Live Internet Signal Strength and Speed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            text-align: center;
-        }
-        .container h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
-        }
-        .container input[type="text"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .container button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .container button:hover {
-            background-color: #218838;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        .result i {
-            margin-right: 10px;
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Link Scanner and URL Redirector</h1>
-        <input type="text" id="urlInput" placeholder="Enter URL to scan">
-        <button onclick="scanUrl()">Scan and Redirect</button>
-        <div class="result" id="result"></div>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Live Internet Signal Strength and Speed</h1>
+        <div class="text-center mb-6">
+            <i id="signal-icon" class="fas fa-signal text-green-500 text-6xl animate-pulse"></i>
+            <p class="text-xl text-gray-700 mt-2">Signal Strength: <span id="signal-strength" class="font-semibold">Good</span></p>
+        </div>
+        <div class="text-center">
+            <p class="text-lg text-gray-700">Download Speed: <span id="download-speed" class="font-semibold">0</span> Mbps</p>
+        </div>
     </div>
 
     <script>
-        function scanUrl() {
-            const url = document.getElementById('urlInput').value;
-            const resultDiv = document.getElementById('result');
+        function updateSignalStrength() {
+            const signalStrengths = ['Poor', 'Fair', 'Good', 'Excellent'];
+            const signalColors = {
+                'Poor': 'text-red-500',
+                'Fair': 'text-yellow-500',
+                'Good': 'text-green-500',
+                'Excellent': 'text-blue-500'
+            };
+            const randomStrength = signalStrengths[Math.floor(Math.random() * signalStrengths.length)];
+            const signalIcon = document.getElementById('signal-icon');
+            const signalStrengthText = document.getElementById('signal-strength');
 
-            // Simulate URL scanning
-            setTimeout(() => {
-                const isSafe = Math.random() > 0.5; // Randomly determine if URL is safe
+            // Update text
+            signalStrengthText.innerText = randomStrength;
 
-                if (isSafe) {
-                    resultDiv.innerHTML = '<i class="fas fa-check-circle" style="color: green;"></i> URL is safe. Redirecting...';
-                    setTimeout(() => {
-                        window.location.href = url;
-                    }, 2000);
-                } else {
-                    resultDiv.innerHTML = '<i class="fas fa-times-circle" style="color: red;"></i> URL is not safe. Please try another link.';
-                }
-            }, 1000);
+            // Update icon color
+            signalIcon.className = `fas fa-signal text-6xl animate-pulse ${signalColors[randomStrength]}`;
         }
+
+        function updateDownloadSpeed() {
+            const downloadSpeed = Math.floor(Math.random() * 100);
+            document.getElementById('download-speed').innerText = downloadSpeed;
+        }
+
+        // Update signal strength and download speed every 5 seconds
+        setInterval(() => {
+            updateSignalStrength();
+            updateDownloadSpeed();
+        }, 5000);
     </script>
 </body>
 </html>
