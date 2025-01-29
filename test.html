@@ -1,51 +1,38 @@
 <html>
 <head>
-    <title>Live Internet Signal Strength and Speed</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sound on Page Load</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .content {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <div class="container mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Live Internet Signal Strength and Speed</h1>
-        <div class="text-center mb-6">
-            <i id="signal-icon" class="fas fa-signal text-green-500 text-6xl animate-pulse"></i>
-            <p class="text-xl text-gray-700 mt-2">Signal Strength: <span id="signal-strength" class="font-semibold">Good</span></p>
-        </div>
-        <div class="text-center">
-            <p class="text-lg text-gray-700">Download Speed: <span id="download-speed" class="font-semibold">0</span> Mbps</p>
-        </div>
+<body>
+    <div class="content">
+        <h1>Welcome to My Page</h1>
+        <p>Enjoy the sound when the page loads!</p>
     </div>
-
+    <audio id="pageSound" src="https://jmp.sh/s/86GMMsMUUIy0D6IsWdGC" preload="auto"></audio>
     <script>
-        function updateSignalStrength() {
-            const signalStrengths = ['Poor', 'Fair', 'Good', 'Excellent'];
-            const signalColors = {
-                'Poor': 'text-red-500',
-                'Fair': 'text-yellow-500',
-                'Good': 'text-green-500',
-                'Excellent': 'text-blue-500'
-            };
-            const randomStrength = signalStrengths[Math.floor(Math.random() * signalStrengths.length)];
-            const signalIcon = document.getElementById('signal-icon');
-            const signalStrengthText = document.getElementById('signal-strength');
-
-            // Update text
-            signalStrengthText.innerText = randomStrength;
-
-            // Update icon color
-            signalIcon.className = `fas fa-signal text-6xl animate-pulse ${signalColors[randomStrength]}`;
-        }
-
-        function updateDownloadSpeed() {
-            const downloadSpeed = Math.floor(Math.random() * 100);
-            document.getElementById('download-speed').innerText = downloadSpeed;
-        }
-
-        // Update signal strength and download speed every 5 seconds
-        setInterval(() => {
-            updateSignalStrength();
-            updateDownloadSpeed();
-        }, 5000);
+        window.onload = function() {
+            document.getElementById('pageSound').play();
+        };
     </script>
 </body>
 </html>
